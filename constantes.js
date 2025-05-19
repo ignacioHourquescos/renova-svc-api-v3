@@ -1,0 +1,70 @@
+const listas = [
+	{
+		codigo: 1,
+		descripcion: "FRAM.",
+		mes2: "SEPTIEMBRE",
+		mes: "Lista Vigente:",
+		aumento: "Ultima actualización Septiembre: 5% lineal",
+		descuento: "Consultar descuento x cantidad",
+	},
+	{
+		codigo: 12,
+		descripcion: "MOTUL",
+		mes2: "ABRIL",
+		mes: "Lista Vigente:",
+		aumento: "Ultima actualización ABRIL: Desparejo",
+		descuento: "",
+	},
+	{
+		codigo: 3,
+		descripcion: "VALVOLINE",
+		mes2: "MAYO",
+		mes: "Lista Vigente:",
+		aumento: "Ultima actualización MAYO: Desparejo",
+		descuento: "",
+	},
+	// {
+	// 	codigo: 316,
+	// 	descripcion: "PETRONAS",
+	// 	mes2: "10 de Junio",
+	// 	mes: "Ultima Actualización:",
+	// 	aumento: "Subas y bajas desaprejas",
+	// 	descuento: "",
+	// },
+	{
+		codigo: 5,
+		descripcion: "TOTAL",
+		mes2: "MAYO",
+		mes: "Lista Vigente:",
+		aumento: "",
+		descuento: "",
+	},
+	{
+		codigo: 14,
+		descripcion: "LOCX",
+		mes2: "MAYO",
+		mes: "Lista Vigente:",
+		aumento: "Ultima actualización MAYO: desparejo",
+		descuento: "",
+	},
+	{
+		codigo: 27,
+		descripcion: "PUMA",
+		mes2: "ABRIL",
+		mes: "Lista Vigente:",
+		aumento: "Ultima actualización JULIO: 4% NO lineal",
+		descuento: "",
+	},
+	{
+		codigo: 8,
+		descripcion: "RAMA",
+		mes2: "ABRIL",
+		mes: "Lista Vigente:",
+		aumento: "Ultima actualización AGOSTO: 10% NO lineal",
+		descuento: "",
+	},
+];
+
+module.exports = {
+	listas: listas,
+};
