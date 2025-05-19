@@ -1,13 +1,14 @@
 {
-	"name": "renova",
+	"name": "renova api",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Api para la aplicación de Renova",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon servidor.js"
+		"start": "nodemon index.js",
+		"dev": "nodemon servidor.js"
 	},
-	"author": "",
+	"author": "Propulz",
 	"license": "ISC",
 	"dependencies": {
 		"@gardelin/jquery-accordion": "^1.0.0",
@@ -28,5 +29,8 @@
 		"nodemon": "^2.0.21",
 		"sequelize": "^6.11.0",
 		"socket.io": "^2.3.0"
+	},
+	"engines": {
+		"node": ">=14.0.0"
 	}
 }
