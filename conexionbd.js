@@ -1,28 +1,25 @@
-var sql = require("mssql");
 require("dotenv").config();
 
-// config for your database using environment variables
+console.log("Variables de entorno:", {
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+});
+
+var sql = require("mssql");
+
+// config for your database
 var config = {
-	user: process.env.DB_USER || "rnv_admin",
-	password: process.env.DB_PASSWORD || "Rnv_12345",
-	server: process.env.DB_HOST || "200.80.10.160",
-	database: process.env.DB_NAME || "factu_renova",
-	options: {
-		encrypt: false,
-		enableArithAbort: true,
-		trustServerCertificate: true,
-		port: parseInt(process.env.DB_PORT) || 50322,
-		path: process.env.DB_PATH || "/RPSISTEMAS",
-	},
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	server: "200.80.10.160",
+	path: "/RPSISTEMAS",
+	port: 50322,
+	database: "factu_renova",
+	encrypt: false,
 };
 
-// Intentar conectar a la base de datos
 var connection = sql.connect(config, function (err) {
-	if (err) {
-		console.error("Error de conexión a la base de datos:", err);
-	} else {
-		console.log("Conexión exitosa a la base de datos");
-	}
+	if (err) console.log(err);
 });
 
 module.exports = connection;
