@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "views")));
 
 //app.get('/', function (req, res)            {res.sendFile(path.join(__dirname + '/views/html/index.html'));});
 //app.get('/faq', function (req, res)         {res.sendFile(path.join(__dirname + '/views/html/faq.html'));})
-
+//test
 // prettier-ignore
 app.get("/listas", controller.obtenerListas);
 app.get("/listas/:id", controller.obtenerListaDetalle);
