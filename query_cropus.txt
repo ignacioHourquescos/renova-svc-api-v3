@@ -1,0 +1,47 @@
+const queries = {
+    // Clientes queries
+    getAllClients: `
+        SELECT codigo, razon 
+        FROM clientes 
+        ORDER BY razon ASC
+    `,
+
+    getClientsByVendedor: `
+        SELECT razon 
+        FROM clientes 
+        WHERE CODI_VENDE='7' 
+        ORDER BY razon ASC
+    `,
+
+    getClientById: `
+        SELECT codigo, razon, direccion, localidad, provincia, telefono, email 
+        FROM clientes 
+        WHERE codigo = ?
+    `,
+
+    getClientVouchers: `
+        SELECT numero, fecha, total, saldo 
+        FROM facturas 
+        WHERE cliente = ? 
+        AND saldo > 0 
+        ORDER BY fecha DESC
+    `,
+
+    // Artículos queries
+    getPrecioPorArticulo: (clienteCondition) => `
+        SELECT 
+            a.precio_vta as p,
+            c.codigo,
+            c.razon,
+            c.direccion,
+            c.localidad,
+            c.provincia,
+            c.telefono,
+            c.email
+        FROM articulos a
+        JOIN clientes c ON ${clienteCondition}
+        WHERE a.cod_articulo = ?
+    `
+};
+
+module.exports = queries;

@@ -1,5 +1,0 @@
-- cambiar iconitos inicio
-- mejorar SearchList
-- poner observaciones abajo de todo
-- trigger par acuando carga articulo
-- activar contraseña

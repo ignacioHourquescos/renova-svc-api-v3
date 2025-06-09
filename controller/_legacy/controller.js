@@ -1,5 +1,5 @@
-var con = require("../conexionbd");
-const constantes = require("../constantes");
+var con = require("../../config/conexionbd");
+const constantes = require("../../constantes");
 const fetch = require("node-fetch");
 
 function obtenerListas(req, res) {
@@ -946,10 +946,10 @@ const getClient = async (req, res) => {
 					reject(error);
 				} else {
 					resolve(resultado.recordsets[0][0]);
-					res.status(200).json(resultado.recordsets[0][0]);
 				}
 			});
 		});
+		res.status(200).json(resultado);
 	} catch (error) {
 		console.log("Hubo un error en la consulta", error.message);
 		res.status(500).send("Hubo un error en la consulta");

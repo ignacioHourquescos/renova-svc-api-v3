@@ -1,0 +1,693 @@
+{
+	"info": {
+		"_postman_id": "renova-api-v2-collection",
+		"name": "Renova API v2",
+		"description": "Colección completa de endpoints para la API de Renova v2\n\n## Estructura:\n- **API Info**: Información y estado de la API\n- **Legacy Endpoints**: Rutas existentes (mantener compatibilidad)\n- **Articles API**: Nuevos endpoints REST para artículos\n- **Clients API**: Nuevos endpoints REST para clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Info & Health",
+			"description": "Endpoints para información y estado de la API",
+			"item": [
+				{
+					"name": "API Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/info",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "info"]
+						},
+						"description": "Obtiene información general de la API, versión y endpoints disponibles"
+					}
+				},
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/health",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "health"]
+						},
+						"description": "Verifica el estado de la API"
+					}
+				}
+			]
+		},
+		{
+			"name": "Legacy Endpoints",
+			"description": "Rutas legacy existentes - NO MODIFICAR por compatibilidad",
+			"item": [
+				{
+					"name": "Listas y Detalles",
+					"item": [
+						{
+							"name": "Obtener Listas Principales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": ["{{baseUrl}}"],
+									"path": [""]
+								},
+								"description": "Obtiene las listas principales del sistema"
+							}
+						},
+						{
+							"name": "Detalle de Lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lista/:id",
+									"host": ["{{baseUrl}}"],
+									"path": ["lista", ":id"],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "ID de la lista"
+										}
+									]
+								},
+								"description": "Obtiene el detalle de una lista específica"
+							}
+						},
+						{
+							"name": "Listado de Artículos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/listado-articulos",
+									"host": ["{{baseUrl}}"],
+									"path": ["listado-articulos"]
+								}
+							}
+						},
+						{
+							"name": "Listado Artículos por Lista",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/listado-articulos-por-lista",
+									"host": ["{{baseUrl}}"],
+									"path": ["listado-articulos-por-lista"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Ofertas",
+					"item": [
+						{
+							"name": "Ofertas Kits",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-kits",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-kits"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Fram",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-fram",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-fram"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Mensuales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-mensuales",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-mensuales"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Valvoline",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-valvoline",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-valvoline"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Valvoline Varios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-valvoline-varios",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-valvoline-varios"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Motul",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-motul",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-motul"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Total",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-total",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-total"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Selenia",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-selenia",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-selenia"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Puma",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-puma",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-puma"]
+								}
+							}
+						},
+						{
+							"name": "Ofertas Varios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ofertas-varios",
+									"host": ["{{baseUrl}}"],
+									"path": ["ofertas-varios"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Stock",
+					"item": [
+						{
+							"name": "Stock Crítico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stock-critico",
+									"host": ["{{baseUrl}}"],
+									"path": ["stock-critico"]
+								}
+							}
+						},
+						{
+							"name": "Stock Negativo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stock-negativo",
+									"host": ["{{baseUrl}}"],
+									"path": ["stock-negativo"]
+								}
+							}
+						},
+						{
+							"name": "Stock Artículo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stock-articulo",
+									"host": ["{{baseUrl}}"],
+									"path": ["stock-articulo"]
+								}
+							}
+						},
+						{
+							"name": "Stock by UM",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stock-by-um",
+									"host": ["{{baseUrl}}"],
+									"path": ["stock-by-um"]
+								}
+							}
+						},
+						{
+							"name": "Inventory by UM",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/inventory-by-um/:um",
+									"host": ["{{baseUrl}}"],
+									"path": ["inventory-by-um", ":um"],
+									"variable": [
+										{
+											"key": "um",
+											"value": "C11",
+											"description": "Unidad de medida"
+										}
+									]
+								}
+							}
+						},
+						{
+							"name": "Detailed UM",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/detailed-um?um=C11",
+									"host": ["{{baseUrl}}"],
+									"path": ["detailed-um"],
+									"query": [
+										{
+											"key": "um",
+											"value": "C11",
+											"description": "Unidad de medida"
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Artículos Legacy",
+					"item": [
+						{
+							"name": "Obtener Artículo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/articulo",
+									"host": ["{{baseUrl}}"],
+									"path": ["articulo"]
+								}
+							}
+						},
+						{
+							"name": "Agrupación de Artículo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/agrupacion-articulo",
+									"host": ["{{baseUrl}}"],
+									"path": ["agrupacion-articulo"]
+								}
+							}
+						},
+						{
+							"name": "Remate Mercadería",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/remate-mercaderia",
+									"host": ["{{baseUrl}}"],
+									"path": ["remate-mercaderia"]
+								}
+							}
+						},
+						{
+							"name": "Vinto",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/vinto",
+									"host": ["{{baseUrl}}"],
+									"path": ["vinto"]
+								}
+							}
+						},
+						{
+							"name": "Artículo Específico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/specific-article?article=ABC123",
+									"host": ["{{baseUrl}}"],
+									"path": ["specific-article"],
+									"query": [
+										{
+											"key": "article",
+											"value": "ABC123",
+											"description": "Código del artículo"
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Clientes Legacy",
+					"item": [
+						{
+							"name": "Listado de Clientes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clientes",
+									"host": ["{{baseUrl}}"],
+									"path": ["clientes"]
+								}
+							}
+						},
+						{
+							"name": "Clientes por Vendedor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clientes-por-vendedor",
+									"host": ["{{baseUrl}}"],
+									"path": ["clientes-por-vendedor"]
+								}
+							}
+						},
+						{
+							"name": "Obtener Cliente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/cliente?clientId=12345",
+									"host": ["{{baseUrl}}"],
+									"path": ["cliente"],
+									"query": [
+										{
+											"key": "clientId",
+											"value": "12345",
+											"description": "ID del cliente"
+										}
+									]
+								}
+							}
+						},
+						{
+							"name": "Comprobantes de Cliente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/cliente-comprobantes?clientId=12345",
+									"host": ["{{baseUrl}}"],
+									"path": ["cliente-comprobantes"],
+									"query": [
+										{
+											"key": "clientId",
+											"value": "12345",
+											"description": "ID del cliente"
+										}
+									]
+								}
+							}
+						},
+						{
+							"name": "Comprobantes Vencidos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/comprobantes-vencidos/:nroCliente",
+									"host": ["{{baseUrl}}"],
+									"path": ["comprobantes-vencidos", ":nroCliente"],
+									"variable": [
+										{
+											"key": "nroCliente",
+											"value": "12345",
+											"description": "Número de cliente"
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Pedidos y Ventas",
+					"item": [
+						{
+							"name": "Información de Pedidos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/informacion-pedidos",
+									"host": ["{{baseUrl}}"],
+									"path": ["informacion-pedidos"]
+								}
+							}
+						},
+						{
+							"name": "Información Pedidos por Fecha",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/informacion-pedidos-fecha",
+									"host": ["{{baseUrl}}"],
+									"path": ["informacion-pedidos-fecha"]
+								}
+							}
+						},
+						{
+							"name": "Ventas por Agrupación",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ventas-por-agrupacion",
+									"host": ["{{baseUrl}}"],
+									"path": ["ventas-por-agrupacion"]
+								}
+							}
+						},
+						{
+							"name": "Ventas Generales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ventas-generales",
+									"host": ["{{baseUrl}}"],
+									"path": ["ventas-generales"]
+								}
+							}
+						},
+						{
+							"name": "Últimas Ventas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/ultimas-ventas",
+									"host": ["{{baseUrl}}"],
+									"path": ["ultimas-ventas"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Autenticación",
+					"item": [
+						{
+							"name": "Validar Usuario",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"usuario\",\n    \"password\": \"password\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/validate-user",
+									"host": ["{{baseUrl}}"],
+									"path": ["validate-user"]
+								}
+							}
+						},
+						{
+							"name": "Validación General de Usuario",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numCliente\": \"12345\",\n    \"password\": \"20123456789\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/general-validate-user",
+									"host": ["{{baseUrl}}"],
+									"path": ["general-validate-user"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Gastos",
+					"item": [
+						{
+							"name": "Obtener Gastos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/expenses",
+									"host": ["{{baseUrl}}"],
+									"path": ["expenses"]
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Articles API (REST)",
+			"description": "Nuevos endpoints REST para artículos",
+			"item": [
+				{
+					"name": "Obtener Artículo por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/articles/:id?listCode=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "articles", ":id"],
+							"query": [
+								{
+									"key": "listCode",
+									"value": "2",
+									"description": "Código de lista (opcional, default: 2)"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ABC123",
+									"description": "Código del artículo"
+								}
+							]
+						},
+						"description": "Obtiene un artículo específico por su código/ID"
+					}
+				},
+				{
+					"name": "Stock Negativo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/articles/stock/negative",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "articles", "stock", "negative"]
+						},
+						"description": "Obtiene todos los artículos con stock negativo"
+					}
+				}
+			]
+		},
+		{
+			"name": "Clients API (REST)",
+			"description": "Nuevos endpoints REST para clientes",
+			"item": [
+				{
+					"name": "Obtener Descuento de Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/clients/:clientNumber/discount",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "clients", ":clientNumber", "discount"],
+							"variable": [
+								{
+									"key": "clientNumber",
+									"value": "12345",
+									"description": "Número de cliente"
+								}
+							]
+						},
+						"description": "Obtiene el descuento aplicable para un cliente específico"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5555",
+			"type": "string",
+			"description": "URL base de la API"
+		}
+	]
+}

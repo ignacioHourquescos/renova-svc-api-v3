@@ -1,5 +1,5 @@
-var con = require("../conexionbd");
-const constantes = require("../constantes");
+var con = require("../../config/conexionbd");
+const constantes = require("../../constantes");
 const fetch = require("node-fetch");
 const dayjs = require("dayjs");
 

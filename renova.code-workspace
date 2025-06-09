@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"git.decorations.enabled": true,
+		"explorer.decorations.badges": true,
+		"scm.decorations.enabled": true,
+		"workbench.tree.indent": 22,
+		"workbench.activityBar.iconClickBehavior": "toggle",
+		"workbench.tree.renderIndentGuides": "always",
+		"liveServer.settings.port": 5501
+	}
+}

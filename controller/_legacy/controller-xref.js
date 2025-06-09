@@ -1,5 +1,5 @@
 const levenshtein = require("fastest-levenshtein");
-var con = require("../conexionbd");
+var con = require("../../config/conexionbd");
 
 function getXrefList(req, res) {
 	var array = [];
