@@ -131,6 +131,29 @@ const queries = {
 			ORDER BY ag.descrip_agru ASC, a.cod_articulo ASC
 		`;
 	},
+
+	// Query para obtener precios por código de lista
+	getPricesByListCode_query: (listCode) => {
+		return `
+			SELECT 
+				 a.cod_articulo AS id,
+         a.KG_POR_UNIDAD AS kg_por_unidad,
+    a.agru_1 AS agru,
+    a.descrip_arti AS d,
+    a.desc_adicional AS da,
+    a.FECHA_ULTIMO_MOV AS fum,
+    a.cant_stock AS s,
+    a.precio_uni AS p,
+    a.um AS UM,
+    i.precio_vta AS pr
+			FROM articulos a
+			JOIN listas_items i ON a.cod_articulo = i.articulo
+			LEFT JOIN agrupaciones ag ON a.agru_2 = ag.codi_agru
+			WHERE a.activo = 'S'
+				AND i.lista_codi = '${listCode}'
+			ORDER BY a.cod_articulo ASC
+		`;
+	},
 };
 
 module.exports = { queries };

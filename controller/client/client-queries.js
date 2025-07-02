@@ -16,6 +16,9 @@ exports.queries = {
 	getDiscountByClientNumber_query: (clientNumber) =>
 		`EXEC renova_clien_descuen_consul ${clientNumber}
 `,
+	getClientById_query: (clientId) => `
+		SELECT * FROM CLIENTES WHERE NUM_CLIENTE='${clientId}'
+	`,
 };
 
 //{

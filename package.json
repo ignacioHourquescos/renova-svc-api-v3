@@ -1,5 +1,5 @@
 {
-	"name": "renova api",
+	"name": "renova-svc-api",
 	"version": "1.0.0",
 	"description": "Api para la aplicación de Renova",
 	"main": "index.js",

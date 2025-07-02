@@ -11,7 +11,7 @@ const articleController = require("../controller/article/article-controller");
 // GET /api/articles/:id - Obtener artículo por ID
 router.get("/:id", articleController.getArticleById);
 
-// Stock-related routes
-router.get("/stock/negative", articleController.getNegativeStock);
+// GET /api/articles/prices/list/:listCode - Obtener precios por código de lista
+router.get("/prices/list/:listCode", articleController.getPricesByListCode);
 
 module.exports = router;

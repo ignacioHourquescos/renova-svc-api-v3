@@ -35,7 +35,27 @@ function getArticleById(req, res) {
 	);
 }
 
+function getPricesByListCode(req, res) {
+	const listCode = req.params.listCode;
+
+	if (!listCode) {
+		return res.status(400).json({ error: "El código de lista es requerido" });
+	}
+
+	con.query(
+		queries.getPricesByListCode_query(listCode),
+		function (error, resultado, fields) {
+			if (error) {
+				console.log("Hubo un error en la consulta", error.message);
+				return res.status(500).send("Hubo un error en la consulta");
+			}
+			res.send(JSON.stringify(resultado.recordsets[0]));
+		}
+	);
+}
+
 module.exports = {
 	getNegativeStock,
 	getArticleById,
+	getPricesByListCode,
 };

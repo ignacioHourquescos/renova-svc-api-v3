@@ -31,7 +31,23 @@ function getListCodeByClientNumber(req, res) {
 	);
 }
 
+function getClientById(req, res) {
+	const clientId = req.params.id;
+
+	con.query(
+		queries.getClientById_query(clientId),
+		function (error, result, fields) {
+			if (error) {
+				console.log("Database query error", error.message);
+				return res.status(500).send("Database query error");
+			}
+			res.send(JSON.stringify(result.recordsets[0]));
+		}
+	);
+}
+
 module.exports = {
 	getDiscountByClientNumber,
 	getListCodeByClientNumber,
+	getClientById,
 };
