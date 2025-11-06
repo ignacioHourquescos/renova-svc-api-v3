@@ -554,6 +554,7 @@ function obtenerListadoArticulos(req, res) {
     a.cant_stock AS s,
     a.precio_uni AS p,
     a.um AS UM,
+    a.FALTANTE_STOCK as faltante_stock,
     i.precio_vta AS pr
 FROM
     articulos a
