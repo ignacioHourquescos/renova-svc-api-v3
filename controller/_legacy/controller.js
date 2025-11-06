@@ -497,6 +497,7 @@ function obtenerListadoArticulosPorLista(req, res) {
         a.desc_adicional AS da,
         a.FECHA_ULTIMO_MOV AS fum,
         a.cant_stock AS s,
+        a.FALTANTE_STOCK as faltante_stock,
         a.precio_uni AS p,
         a.um AS UM,
         i.lista_codi AS lista,
