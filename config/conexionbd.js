@@ -11,7 +11,7 @@ var sql = require("mssql");
 var config = {
 	user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
-	server: "200.80.10.160",
+	server: "190.210.24.139",
 	path: "/RPSISTEMAS",
 	port: 50322,
 	database: "factu_renova",
