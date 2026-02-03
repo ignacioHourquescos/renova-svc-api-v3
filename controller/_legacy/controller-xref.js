@@ -1,41 +1,62 @@
 const levenshtein = require("fastest-levenshtein");
+const fs = require("fs");
+const path = require("path");
+const csv = require("csv-parser");
 var con = require("../../config/conexionbd");
 
 function getXrefList(req, res) {
 	var array = [];
-	let shareCode = "15LE40PKCjaXieNVO4MVby8cIaLjCvyEz8uA4Z7ZR3J0";
-	let API_KEY = "AIzaSyBf70CQRaHfuWQXBn66jNwB7Gh01L-yXrw";
-	let sheetName = "XREF";
-
-	// let param = req.params.param; // Extract the parameter from the URL
 	let article = req.query.article;
-	fetch(
-		`https://sheets.googleapis.com/v4/spreadsheets/${shareCode}/values/${sheetName}?alt=json&key=${API_KEY}`
-	)
-		.then((data) => data.json())
-		.then((data) => {
-			console.log(data);
+	const csvPath = path.join(__dirname, "../../XREF.csv");
+	const results = [];
 
+	// Leer el archivo CSV
+	fs.createReadStream(csvPath)
+		.pipe(csv())
+		.on("data", (row) => {
+			results.push(row);
+		})
+		.on("end", () => {
 			let suggestions = [];
 
-			for (var i = 1; i < data.values.length; i++) {
+			// Procesar cada fila del CSV (ya sin el header)
+			for (var i = 0; i < results.length; i++) {
+				const row = results[i];
+				// Crear un array con todos los valores de la fila para buscar coincidencias
+				const rowValues = [
+					row.Categoria,
+					row["Sub categoria 1"],
+					row["Sub categoria 2"],
+					row.OEM,
+					row.FRAM,
+					row.Tecfil,
+					row.Wega,
+					row.Mann,
+					row.Mahle,
+					row.Wix,
+				].filter((val) => val && val.trim() !== ""); // Filtrar valores vacíos
+
 				// Check if the parameter matches exactly
 				if (
-					data.values[i].some(
+					rowValues.some(
 						(value) => value.toLowerCase() === article.toLowerCase()
 					)
 				) {
 					array.push({
-						fram: data.values[i][0],
-						tecfil: data.values[i][1],
-						wega: data.values[i][2],
-						mann: data.values[i][3],
-						Mahle: data.values[i][4],
-						Wix: data.values[i][5],
+						categoria: row.Categoria,
+						subCategoria1: row["Sub categoria 1"],
+						subCategoria2: row["Sub categoria 2"],
+						oem: row.OEM || "",
+						fram: row.FRAM || "",
+						tecfil: row.Tecfil || "",
+						wega: row.Wega || "",
+						mann: row.Mann || "",
+						mahle: row.Mahle || "",
+						wix: row.Wix || "",
 					});
 				} else {
 					// If not an exact match, calculate Levenshtein distance and convert to similarity score
-					let distances = data.values[i].map((value) =>
+					let distances = rowValues.map((value) =>
 						levenshtein.distance(article, value)
 					);
 					let minDistance = Math.min(...distances);
@@ -43,7 +64,7 @@ function getXrefList(req, res) {
 					// You may want to adjust a threshold for what you consider a good match
 					if (minDistance <= 1.5) {
 						// Add only the codes that are similar
-						let similarCodes = data.values[i].filter((value) => {
+						let similarCodes = rowValues.filter((value) => {
 							return levenshtein.distance(article, value) <= 1.5;
 						});
 						suggestions.push(...similarCodes);
@@ -53,8 +74,8 @@ function getXrefList(req, res) {
 
 			res.send(JSON.stringify({ results: array, suggestions }));
 		})
-		.catch((error) => {
-			console.error("Error fetching data:", error);
+		.on("error", (error) => {
+			console.error("Error reading CSV file:", error);
 			res.status(500).send("Internal Server Error");
 		});
 }

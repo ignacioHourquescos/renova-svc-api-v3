@@ -8,8 +8,6 @@ const legacyController = require("../controller/_legacy/controller");
 // compatibilidad con aplicaciones existentes
 // ==========================================
 
-// Ruta principal que devuelve las listas
-router.get("/", legacyController.obtenerListas);
 
 // Rutas de listas y detalles
 router.get("/lista/:id", legacyController.obtenerListaDetalle);
@@ -87,6 +85,10 @@ router.get("/obtenerVinto", legacyController.obtenerVinto); // Compatibilidad fr
 router.get("/specific-article", legacyController.getSpecificArticle);
 router.get("/getSpecificArticle", legacyController.getSpecificArticle); // Compatibilidad frontend
 
+// Rutas de referencias cruzadas (XREF)
+router.get("/xref", legacyController.getXrefList);
+router.get("/getXrefList", legacyController.getXrefList); // Compatibilidad frontend
+
 // Rutas de clientes legacy
 router.get("/clientes", legacyController.listadoClientes);
 router.get("/listadoClientes", legacyController.listadoClientes); // Compatibilidad frontend
@@ -125,6 +127,8 @@ router.get("/ventasGenerales", legacyController.ventasGenerales); // Compatibili
 router.get("/ultimas-ventas", legacyController.ultimasVentas);
 router.get("/ultimasVentas", legacyController.ultimasVentas); // Compatibilidad frontend
 
+// Ruta principal que devuelve las listas
+router.get("/", legacyController.obtenerListas);
 // Rutas de gastos y autenticación
 router.get("/expenses", legacyController.getExpenses);
 router.get("/getExpenses", legacyController.getExpenses); // Compatibilidad frontend

@@ -1,6 +1,6 @@
 //paquetes necesarios para el proyecto
 var express = require("express");
-var PORT = process.env.PORT || 5555;
+var PORT = process.env.PORT || 3010;
 var bodyParser = require("body-parser");
 var path = require("path");
 var cors = require("cors");
@@ -52,4 +52,13 @@ app.listen(PORT, function () {
 	console.log("🚀 Escuchando en el puerto " + PORT);
 	console.log("📊 API Info: http://localhost:" + PORT + "/api/info");
 	console.log("❤️  Health Check: http://localhost:" + PORT + "/api/health");
+}).on("error", function (err) {
+	if (err.code === "EADDRINUSE") {
+		console.error(`❌ Error: El puerto ${PORT} ya está en uso.`);
+		console.error(`💡 Solución: Cierra la aplicación que está usando el puerto ${PORT} o cambia el puerto.`);
+		console.error(`💡 Para encontrar qué proceso usa el puerto, ejecuta: netstat -ano | findstr :${PORT}`);
+	} else {
+		console.error("❌ Error al iniciar el servidor:", err.message);
+	}
+	process.exit(1);
 });

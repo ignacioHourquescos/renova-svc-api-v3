@@ -1,6 +1,7 @@
 var con = require("../../config/conexionbd");
 const constantes = require("../../constantes");
 const fetch = require("node-fetch");
+const { getXrefList } = require("./controller-xref");
 
 function obtenerListas(req, res) {
 	res.send(JSON.stringify(constantes.listas));
@@ -1018,4 +1019,5 @@ module.exports = {
 	detailedUm: detailedUm,
 	inventoryByUM: inventoryByUM,
 	obtenerListadoArticulosPorLista: obtenerListadoArticulosPorLista,
+	getXrefList: getXrefList,
 };
