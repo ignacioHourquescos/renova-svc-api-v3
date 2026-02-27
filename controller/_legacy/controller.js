@@ -9,6 +9,7 @@ function obtenerListas(req, res) {
 
 function obtenerListaDetalle(req, res) {
 	var id = req.params.id;
+	var listCode = req.query.listCode || "2";
 	var sql =
 		"select a.cod_articulo as id, a.descrip_arti as d, precio_vta as p, descrip_agru as r, a.cant_stock as s \
       from articulos a \
@@ -19,7 +20,7 @@ function obtenerListaDetalle(req, res) {
       and a.agru_1=" +
 		id +
 		"and activo='S' \
-      and i.lista_codi='2'\
+      and i.lista_codi='" + listCode + "'\
       and ag.descrip_agru<>'AGRUPACION PRUEBA'\
       and ag.descrip_agru<>'OFERTAS FRAM'\
       order by r ASC, id ASC";
@@ -544,7 +545,7 @@ function obtenerListadoArticulosPorLista(req, res) {
 }
 
 function obtenerListadoArticulos(req, res) {
-	// var sql= "select a.cod_articulo as id,  a.descrip_arti as d, a.desc_adicional as da, a.FECHA_ULTIMO_MOV as fum, a.cant_stock as s,  a.precio_uni as p, um as UM, i.precio_vta as pr from articulos  a join listas_items i on a.cod_articulo=i.articulo WHERE ACTIVO='S' AND FECHA_ULTIMO_MOV IS NOT NULL ORDER BY FECHA_ULTIMO_MOV DESC;";
+	var listCode = req.query.listCode || "2";
 
 	var sql = `SELECT
     a.cod_articulo AS id,
@@ -563,7 +564,7 @@ JOIN
     listas_items i ON a.cod_articulo = i.articulo
 WHERE
     a.ACTIVO = 'S' AND
-    i.lista_codi = '2' 
+    i.lista_codi = '${listCode}' 
 ORDER BY
     id DESC;`;
 
