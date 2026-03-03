@@ -10,7 +10,9 @@ const legacyController = require("../controller/_legacy/controller");
 
 
 // Rutas de listas y detalles
+router.get("/listas", legacyController.obtenerListas);
 router.get("/lista/:id", legacyController.obtenerListaDetalle);
+router.get("/listas/:id", legacyController.obtenerListaDetalle);
 router.get("/listado-articulos", legacyController.obtenerListadoArticulos);
 router.get(
 	"/obtenerListadoArticulos",
