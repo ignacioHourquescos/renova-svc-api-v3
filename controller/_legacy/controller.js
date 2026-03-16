@@ -11,7 +11,7 @@ function obtenerListaDetalle(req, res) {
 	var id = req.params.id;
 	var listCode = req.query.listCode || "2";
 	var sql =
-		"select a.cod_articulo as id, a.descrip_arti as d, precio_vta as p, descrip_agru as r, a.cant_stock as s \
+		"select a.cod_articulo as id, a.descrip_arti as d, precio_vta as p, descrip_agru as r, a.cant_stock as s, a.agru_1 as agru_1, a.agru_2 as agru_2 \
       from articulos a \
       join agrupaciones ag\
       on a.agru_2=ag.codi_agru \
