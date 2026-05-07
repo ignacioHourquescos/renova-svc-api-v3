@@ -557,7 +557,7 @@ function obtenerListadoArticulos(req, res) {
     a.precio_uni AS p,
     a.um AS UM,
     a.FALTANTE_STOCK as faltante_stock,
-    i.precio_vta AS pr
+    i.precio_vta AS pr,
 	a.KG_POR_UNIDAD AS unidadLitro,
 FROM
     articulos a
