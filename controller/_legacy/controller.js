@@ -558,6 +558,7 @@ function obtenerListadoArticulos(req, res) {
     a.um AS UM,
     a.FALTANTE_STOCK as faltante_stock,
     i.precio_vta AS pr
+	a.KG_POR_UNIDAD AS unidadLitro,
 FROM
     articulos a
 JOIN
