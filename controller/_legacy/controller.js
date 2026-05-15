@@ -554,18 +554,34 @@ function obtenerListadoArticulos(req, res) {
     a.desc_adicional AS da,
     a.FECHA_ULTIMO_MOV AS fum,
     a.cant_stock AS s,
+    ISNULL(SUM(CASE WHEN sd.DEPO = 'DEP' THEN sd.CANT_STOCK ELSE 0 END), 0) AS stockDepositoUnico,
+    ISNULL(SUM(CASE WHEN sd.DEPO = 'D3' THEN sd.CANT_STOCK ELSE 0 END), 0) AS stockDeposito3,
     a.precio_uni AS p,
     a.um AS UM,
     a.FALTANTE_STOCK as faltante_stock,
     i.precio_vta AS pr,
-	a.KG_POR_UNIDAD AS unidadLitro
+    a.KG_POR_UNIDAD AS unidadLitro
 FROM
     articulos a
 JOIN
     listas_items i ON a.cod_articulo = i.articulo
+LEFT JOIN
+    ARTICULOS_STOCK_DEPO sd ON a.cod_articulo = sd.COD_ARTICULO
 WHERE
     a.ACTIVO = 'S' AND
     i.lista_codi = '${listCode}' 
+GROUP BY
+    a.cod_articulo,
+    a.agru_1,
+    a.descrip_arti,
+    a.desc_adicional,
+    a.FECHA_ULTIMO_MOV,
+    a.cant_stock,
+    a.precio_uni,
+    a.um,
+    a.FALTANTE_STOCK,
+    a.KG_POR_UNIDAD,
+    i.precio_vta
 ORDER BY
     id DESC;`;
 
