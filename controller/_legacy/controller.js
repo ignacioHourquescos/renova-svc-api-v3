@@ -553,7 +553,11 @@ function obtenerListadoArticulos(req, res) {
     a.descrip_arti AS d,
     a.desc_adicional AS da,
     a.FECHA_ULTIMO_MOV AS fum,
-    a.cant_stock AS s,
+    ISNULL(
+        a.cant_stock,
+        ISNULL(SUM(CASE WHEN sd.DEPO = 'DEP' THEN sd.CANT_STOCK ELSE 0 END), 0)
+        + ISNULL(SUM(CASE WHEN sd.DEPO = 'D3' THEN sd.CANT_STOCK ELSE 0 END), 0)
+    ) AS s,
     ISNULL(SUM(CASE WHEN sd.DEPO = 'DEP' THEN sd.CANT_STOCK ELSE 0 END), 0) AS stockDepositoUnico,
     ISNULL(SUM(CASE WHEN sd.DEPO = 'D3' THEN sd.CANT_STOCK ELSE 0 END), 0) AS stockDeposito3,
     a.precio_uni AS p,
